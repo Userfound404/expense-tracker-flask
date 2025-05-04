@@ -1,0 +1,11 @@
+[
+  { "userid": "adithya", "name": "Food" },
+  { "userid": "adithya", "name": "Transport" },
+  { "userid": "adithya", "name": "Utilities" },
+
+  { "userid": "Pratik",   "name": "Groceries" },
+  { "userid": "Pratik",   "name": "Entertainment" },
+
+  { "userid": "Pradyun",     "name": "Rent" },
+  { "userid": "Pradyun",     "name": "Subscriptions" }
+]

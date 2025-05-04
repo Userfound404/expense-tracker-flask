@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Edit Expense{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h2>Edit Expense</h2>
+    <form method="post" action="{{ url_for('exp.edit_expense', expense_id=expense.id) }}">
+      {{ form.hidden_tag() }}
+      <div class="mb-3">{{ form.date(class="form-control") }}</div>
+      <div class="mb-3">{{ form.amount(class="form-control") }}</div>
+      <div class="mb-3">{{ form.category(class="form-select") }}</div>
+      <div class="mb-3">{{ form.description(class="form-control") }}</div>
+      <button class="btn btn-primary">{{ form.submit.label }}</button>
+      <a href="{{ url_for('exp.dashboard') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

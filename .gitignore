@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+data.db
+
+# Virtual env
+.venv/
+
+# VS Code
+.vscode/
+
+# Migrations
+migrations/
+
+# System files
+.DS_Store

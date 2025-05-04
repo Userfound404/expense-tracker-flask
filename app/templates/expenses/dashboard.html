@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<!-- Summary Cards -->
+<div class="row mb-4">
+  <div class="col-md-6">
+    <div class="card text-white bg-success">
+      <div class="card-body text-center">
+        <h5 class="card-title">Money Left</h5>
+        <p class="display-4">
+          ₹{{ money_left | round(2) }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card text-white bg-info">
+      <div class="card-body text-center">
+        <h5 class="card-title">Total Spent</h5>
+        <p class="display-4">
+          ₹{{ total_spent | round(2) }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <!-- Category Form -->
+  <div class="col-md-4">
+    <h5>Add Category</h5>
+    <form method="post" action="{{ url_for('exp.create_category') }}">
+      {{ cat_form.hidden_tag() }}
+      <div class="mb-2">
+        {{ cat_form.name(class="form-control", placeholder="e.g. Food") }}
+      </div>
+      <button class="btn btn-secondary btn-sm">{{ cat_form.submit.label }}</button>
+    </form>
+
+    <hr>
+
+    <h5>Existing Categories</h5>
+    <ul class="list-group">
+      {% for c in categories %}
+        <li class="list-group-item">{{ c.name }}</li>
+      {% else %}
+        <li class="list-group-item text-muted">No categories yet</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Expense Form -->
+  <div class="col-md-8">
+    <h5>Add Expense</h5>
+    <form method="post" action="{{ url_for('exp.create_expense') }}">
+      {{ exp_form.hidden_tag() }}
+      <div class="row g-2">
+        <div class="col-md-4">
+          {{ exp_form.date(class="form-control") }}
+        </div>
+        <div class="col-md-4">
+          {{ exp_form.amount(class="form-control", placeholder="Amount") }}
+        </div>
+        <div class="col-md-4">
+          {{ exp_form.category(class="form-select") }}
+        </div>
+      </div>
+      <div class="mt-2">
+        {{ exp_form.description(class="form-control", placeholder="Description") }}
+      </div>
+      <button class="btn btn-primary btn-sm mt-2">{{ exp_form.submit.label }}</button>
+    </form>
+
+    <hr>
+    <a href="{{ url_for('exp.export_expenses') }}"
+    class="btn btn-outline-primary mb-3">
+    Export CSV
+    </a>
+    <h5>Recent Expenses</h5>
+    <table class="table table-sm">
+    <thead>
+      <tr>
+        <th>Date</th><th>Category</th><th>Description</th><th class="text-end">Amount</th>
+        <th>Edit</th><th>Delete</th>
+      </tr>
+    </thead>
+      <tbody>
+      {% for e in expenses %}
+        <tr>
+          <td>{{ e.date.strftime('%Y-%m-%d') }}</td>
+          <td>{{ e.category.name }}</td>
+          <td>{{ e.description }}</td>
+          <td class="text-end">{{ '%.2f'|format(e.amount) }}</td>
+          <td>
+            <a href="{{ url_for('exp.edit_expense', expense_id=e.id) }}"
+               class="btn btn-sm btn-outline-secondary">&#9998;</a>
+          </td>
+          <td>
+            <form method="post" action="{{ url_for('exp.delete_expense', expense_id=e.id) }}">
+              {{ delete_form.hidden_tag() }}
+              <button class="btn btn-sm btn-outline-danger">&times;</button>
+            </form>
+          </td>
+        </tr>
+      {% else %}
+        <tr><td colspan="6" class="text-center text-muted">No expenses yet</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    <hr>
+    <h5>Spending Breakdown (This Year)</h5>
+    <canvas id="expenseChart" style="max-width: 600px;"></canvas>
+  </div>
+</div>
+{% endblock %}
+
+

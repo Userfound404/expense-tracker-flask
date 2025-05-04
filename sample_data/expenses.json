@@ -1,0 +1,53 @@
+[
+  {
+    "userid":        "adithya",
+    "date":          "2025-03-01",
+    "description":   "Lunch at Cafe",
+    "amount":        15.50,
+    "category_name": "Food"
+  },
+  {
+    "userid":        "adithya",
+    "date":          "2025-03-02",
+    "description":   "Gas Refill",
+    "amount":        40.00,
+    "category_name": "Transport"
+  },
+  {
+    "userid":        "adithya",
+    "date":          "2025-03-05",
+    "description":   "Electricity Bill",
+    "amount":        60.75,
+    "category_name": "Utilities"
+  },
+
+  {
+    "userid":        "Pratik",
+    "date":          "2025-04-10",
+    "description":   "Movie Tickets",
+    "amount":        25.00,
+    "category_name": "Entertainment"
+  },
+  {
+    "userid":        "Pratik",
+    "date":          "2025-04-12",
+    "description":   "Weekly Groceries",
+    "amount":        80.20,
+    "category_name": "Groceries"
+  },
+
+  {
+    "userid":        "Pradyun",
+    "date":          "2025-05-01",
+    "description":   "Monthly Rent",
+    "amount":        500.00,
+    "category_name": "Rent"
+  },
+  {
+    "userid":        "Pradyun",
+    "date":          "2025-05-02",
+    "description":   "Streaming Subscription",
+    "amount":        12.99,
+    "category_name": "Subscriptions"
+  }
+]
