@@ -21,7 +21,7 @@ def create_app():
     # register auth at /auth
     app.register_blueprint(auth_bp, url_prefix='/auth')
 
-    # register expenses (no prefix or add your own)
+    # register expenses
     from app.expenses.routes import exp_bp
     app.register_blueprint(exp_bp)
 

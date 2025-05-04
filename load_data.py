@@ -36,7 +36,7 @@ with app.app_context():
             exp = Expense(
                 user_id=user.id,
                 category_id=cat.id,
-                date=e['date'],              # e.g. "2025-03-15"
+                date=e['date'],
                 description=e['description'],
                 amount=float(e['amount'])
             )
