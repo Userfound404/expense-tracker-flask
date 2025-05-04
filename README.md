@@ -103,5 +103,22 @@ Throughout, I focused on code readability, modular organization, and user-friend
 * **Bootstrap 5**: Rapidly implement a consistent, responsive UI without custom CSS.
 * **Chart.js**: Simple yet flexible charts that integrate nicely with Flask templates.
 
+## Outputs and features
 
-*This project was developed as part of an evaluation test to showcase my full-stack web development skills and thoughtful technology choices.*
+1. **Login**
+
+![login](https://github.com/user-attachments/assets/0dda0f80-c7b3-4e7f-b2c5-6c299734aaf6)
+
+2. **Adding categories**
+
+![adding categories](https://github.com/user-attachments/assets/fe65c57d-07cc-433f-84a3-69279197b307)
+
+3. **Adding Expenses**
+
+![adding expenses](https://github.com/user-attachments/assets/341a1004-47e6-4755-a05c-349f74aa0f69)
+
+4. **Editing and Deleting Expenses**
+
+![Editing and deleting expenses](https://github.com/user-attachments/assets/70ec77b0-8b15-47d0-bb6e-5f726bce704e)
+
+
